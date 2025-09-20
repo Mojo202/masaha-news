@@ -1,0 +1,216 @@
+﻿:root {
+    --blogcolor: #000;
+    --softcolor: #fff;
+    --solidcolor: #999;
+}
+
+
+.post-tags-container {
+    margin: 30px 0;
+    padding: 25px;
+    border-top: 3px solid var(--blogcolor);
+    text-align: right;
+    font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;
+    direction: rtl;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 248, 248, 0.95) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--blogcolor);
+    position: relative;
+    overflow: hidden;
+}
+
+
+.post-tags-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blogcolor), transparent, var(--blogcolor));
+    animation: shimmer 3s infinite;
+}
+
+
+@keyframes shimmer {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+
+.post-tags-title {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--blogcolor);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+.post-tags-container .fa-tag {
+    color: var(--blogcolor);
+    font-size: 18px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
+.post-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+
+.post-tags-container a {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--blogcolor);
+    color: var(--softcolor);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid var(--blogcolor);
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(78, 42, 2, 0.25);
+    min-height: 40px;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+.post-tags-container a::before {
+    content: '#';
+    font-weight: 700;
+    margin-left: 5px;
+    color: var(--softcolor);
+    transition: all 0.3s ease;
+}
+
+
+.post-tags-container a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+
+.post-tags-container a:hover::after {
+    left: 100%;
+}
+
+
+.post-tags-container a:hover {
+    background-color: var(--solidcolor);
+    color: var(--softcolor);
+    border-color: var(--solidcolor);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(18, 16, 16, 0.25);
+}
+
+
+.post-tags-container a:hover::before {
+    color: var(--softcolor);
+    transform: rotate(360deg);
+}
+
+
+.post-tags-container a:active {
+    transform: translateY(0) scale(0.98);
+}
+
+
+body.darkmode .post-tags-container {
+    background: linear-gradient(135deg, rgba(42, 42, 42, 0.95) 0%, rgba(30, 30, 30, 0.95) 100%);
+}
+
+
+body.darkmode a.auto-internal-link {
+    color: #f3a953;
+    border-bottom-color: rgba(243, 169, 83, 0.4);
+}
+
+
+body.darkmode a.auto-internal-link:hover {
+    color: #f3a953;
+    text-decoration: underline;
+}
+
+
+.post-body a.auto-internal-link {
+    color: #0b5394;
+    background-color: transparent;
+    font-weight: bold;
+    text-decoration: underline;
+    z-index: 1000;
+    padding: 0;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+
+.post-body a.auto-internal-link:hover {
+    color: var(--blogcolor);
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .post-tags-container {
+        padding: 20px 15px;
+        margin: 20px 0;
+    }
+
+
+    .post-tags-list {
+        gap: 8px;
+    }
+
+
+    .post-tags-container a {
+        padding: 8px 14px;
+        font-size: 11px;
+        min-height: 36px;
+    }
+
+
+    .post-tags-container .fa-tag {
+        font-size: 16px;
+        margin-left: 6px;
+    }
+
+
+    .post-tags-title {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .post-tags-container a {
+        padding: 6px 12px;
+        font-size: 10px;
+        min-height: 32px;
+    }
+}
